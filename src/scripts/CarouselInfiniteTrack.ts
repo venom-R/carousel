@@ -10,17 +10,13 @@ export class CarouselInfiniteTrack extends CarouselAbstractTrack implements ICar
 		}
 	}
 
-	public get currentSlide(): number {
-		if (this._currentSlide >= this.length) {
-			return this.length - this._currentSlide;
-		} else if (this._currentSlide < 0) {
-			return this.length + this._currentSlide;
+	protected normalizeNextSlideIndex(nextSlide: number): number {
+		if (nextSlide >= this.length) {
+			return nextSlide - this.length;
+		} else if (nextSlide < 0) {
+			return this.length + nextSlide;
 		}
-		return this._currentSlide;
-	}
-
-	public goTo(slideIndex: number) {
-		super.goTo(slideIndex);
+		return nextSlide;
 	}
 
 	protected setInitialShift(): void {

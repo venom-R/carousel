@@ -26,7 +26,7 @@ export abstract class CarouselAbstractTrack {
 	}
 
 	public get currentSlide(): number {
-		return this._currentSlide;
+		return this.normalizeNextSlideIndex(this._currentSlide);
 	}
 
 	public get length(): number {
@@ -58,12 +58,21 @@ export abstract class CarouselAbstractTrack {
 		}
 	}
 
+	protected normalizeNextSlideIndex(nextSlide: number): number {
+		return nextSlide;
+	}
+
 	protected changeSlide(nextSlide: number): Promise<void> {
 		if (nextSlide === this._currentSlide) {
 			return Promise.resolve();
 		}
 		this._isTranslating = true;
-		this._emitter.emit(ECarouselEvent.BEFORE_CHANGE, this, this.currentSlide, nextSlide);
+		this._emitter.emit(
+			ECarouselEvent.BEFORE_CHANGE,
+			this,
+			this.currentSlide,
+			this.normalizeNextSlideIndex(nextSlide),
+		);
 		this._currentSlide = nextSlide;
 		this.addTransition();
 		this.translate();
