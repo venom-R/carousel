@@ -10,18 +10,6 @@ export class CarouselValidator implements ICarouselValidator {
 		this._rules = rules;
 	}
 
-	setDefaults(options: Partial<ICarouselOptions>): ICarouselOptions {
-		return {
-			infinite: options.infinite ?? true,
-			slidesToShow: options.slidesToShow ?? 1,
-			slidesToScroll: options.slidesToScroll ?? 1,
-			autoplay: options.autoplay ?? false,
-			pauseOnHover: options.pauseOnHover ?? true,
-			speed: options.speed ?? 300,
-			autoplaySpeed: options.autoplaySpeed ?? 3000,
-		};
-	}
-
 	public validate(options: ICarouselOptions): void {
 		Object.entries(options).forEach(([propName, value]) => {
 			if (propName in this._rules) {

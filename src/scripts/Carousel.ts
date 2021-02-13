@@ -21,7 +21,7 @@ export class Carousel implements ICarousel {
 	constructor(target: HTMLElement, options: Partial<ICarouselOptions>) {
 		this._target = target;
 		this._validator = new CarouselValidator(CAROUSEL_OPTION_RULES);
-		this._options = this._validator.setDefaults(options);
+		this._options = this.mergeOptionsWithDefaults(options);
 		this._validator.validate(this._options);
 		this._timer = new CarouselTimer({
 			autoplaySpeed: options.autoplaySpeed,
@@ -92,5 +92,17 @@ export class Carousel implements ICarousel {
 				}
 			});
 		}
+	}
+
+	protected mergeOptionsWithDefaults(options: Partial<ICarouselOptions>): ICarouselOptions {
+		return {
+			infinite: options.infinite ?? true,
+			slidesToShow: options.slidesToShow ?? 1,
+			slidesToScroll: options.slidesToScroll ?? 1,
+			autoplay: options.autoplay ?? false,
+			pauseOnHover: options.pauseOnHover ?? true,
+			speed: options.speed ?? 300,
+			autoplaySpeed: options.autoplaySpeed ?? 3000,
+		};
 	}
 }
