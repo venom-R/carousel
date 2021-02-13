@@ -1,4 +1,4 @@
-import { CAROUSEL_OPTION_RULES } from "./CAROUSEL_OPTION_RULES";
+import { carouselOptionRules } from "./carouselOptionRules";
 import { CarouselFiniteTrack } from "./CarouselFiniteTrack";
 import { CarouselInfiniteTrack } from "./CarouselInfiniteTrack";
 import { CarouselTimer } from "./CarouselTimer";
@@ -20,7 +20,7 @@ export class Carousel implements ICarousel {
 
 	constructor(target: HTMLElement, options: Partial<ICarouselOptions>) {
 		this._target = target;
-		this._validator = new CarouselValidator(CAROUSEL_OPTION_RULES);
+		this._validator = new CarouselValidator(carouselOptionRules);
 		this._options = this.mergeOptionsWithDefaults(options);
 		this._validator.validate(this._options);
 		this._timer = new CarouselTimer({

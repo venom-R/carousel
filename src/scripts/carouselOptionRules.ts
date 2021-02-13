@@ -1,7 +1,7 @@
 import { TCarouselOptionRules } from "./CarouselValidator";
 import { ICarouselOptions } from "./interfaces/ICarouselOptions";
 
-export const CAROUSEL_OPTION_RULES: TCarouselOptionRules<ICarouselOptions> = {
+export const carouselOptionRules: TCarouselOptionRules<ICarouselOptions> = Object.freeze({
 	slidesToShow(value, _options) {
 		if (value < 0 || value > 12) {
 			throw new Error("slideToScroll is not valid. Value should be greater than 0 and not greater than 12");
@@ -27,4 +27,4 @@ export const CAROUSEL_OPTION_RULES: TCarouselOptionRules<ICarouselOptions> = {
 			);
 		}
 	},
-};
+});
