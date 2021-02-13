@@ -1,0 +1,19 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+
+  &__track {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  &__slide {
+    padding: 10px;
+    flex: 0 0 auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

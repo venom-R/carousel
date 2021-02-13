@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Carousel</title>
+		<link rel="stylesheet" href="./styles/index.scss" />
+	</head>
+	<body>
+		<main class="wrapper">
+			<div class="carousel" id="carousel">
+				<div class="carousel__track" data-track>
+					<div class="carousel__slide" data-slide>
+						<img src="https://placeimg.com/300/300/animals" alt="img" />
+					</div>
+					<div class="carousel__slide" data-slide>
+						<img src="https://placeimg.com/300/300/arch" alt="img" />
+					</div>
+					<div class="carousel__slide" data-slide>
+						<img src="https://placeimg.com/300/300/nature" alt="img" />
+					</div>
+					<div class="carousel__slide" data-slide>
+						<img src="https://placeimg.com/300/300/people" alt="img" />
+					</div>
+					<div class="carousel__slide" data-slide>
+						<img src="https://placeimg.com/300/300/tech" alt="img" />
+					</div>
+					<div class="carousel__slide" data-slide>
+						<img src="https://placeimg.com/300/300/grayscale" alt="img" />
+					</div>
+				</div>
+			</div>
+			<div class="tools">
+				<button id="carouselPrev" class="tools__button">Prev</button>
+				<button id="carouselGoToStart" class="tools__button">To start</button>
+				<button id="carouselGoToEnd" class="tools__button">To end</button>
+				<button id="carouselNext" class="tools__button">Next</button>
+			</div>
+			<div class="tools">
+				<button id="carouselPause" class="tools__button">Pause</button>
+				<button id="carouselPlay" class="tools__button">Play</button>
+			</div>
+		</main>
+
+		<script src="scripts/index.ts"></script>
+	</body>
+</html>

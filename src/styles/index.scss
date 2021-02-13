@@ -1,0 +1,45 @@
+@import "carousel";
+
+$button-color: #2198dd;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  margin: 10px auto;
+  padding: 0 15px;
+  width: 960px;
+}
+
+.tools {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+
+  &__button {
+    transition: all .3s ease-out;
+    color: $button-color;
+    border: 2px solid $button-color;
+    border-radius: 12px;
+    padding: 7px 15px;
+    background: none;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: capitalize;
+
+    &:hover {
+      background: lighten($button-color, 40);
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &__button + &__button {
+    margin-left: 10px;
+  }
+}
