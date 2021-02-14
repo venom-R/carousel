@@ -9,6 +9,7 @@ import { ECarouselSelectors } from "./enums/ECarouselSelectors";
 import { ICarousel } from "./interfaces/ICarousel";
 import { ICarouselOptions } from "./interfaces/ICarouselOptions";
 import { ICarouselValidator } from "./interfaces/ICarouselValidator";
+import "./styles/carousel.scss";
 
 export class Carousel implements ICarousel {
 	protected readonly _target: HTMLElement;

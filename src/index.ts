@@ -1,8 +1,7 @@
-import { Carousel } from "./Carousel";
-import { ICarousel } from "./interfaces/ICarousel";
+import { Carousel } from "./carousel";
 
 const carouselElement = document.getElementById("carousel");
-const carousel: ICarousel = new Carousel(carouselElement, {
+const carousel = new Carousel(carouselElement, {
 	infinite: true,
 	slidesToShow: 4,
 	slidesToScroll: 1,
@@ -36,14 +35,14 @@ document.getElementById("carouselPlay").addEventListener("click", () => {
 	carousel.play();
 });
 
-carousel.on("beforeChange", (_carousel: ICarousel, currentSlide: number, nextSlide: number) => {
+carousel.on("beforeChange", (_carousel: Carousel, currentSlide: number, nextSlide: number) => {
 	console.group("BEFORE_CHANGE");
 	console.log("Current slide:", currentSlide);
 	console.log("Next slide:", nextSlide);
 	console.groupEnd();
 });
 
-carousel.on("afterChange", (carousel: ICarousel, currentSlide: number) => {
+carousel.on("afterChange", (carousel: Carousel, currentSlide: number) => {
 	console.group("AFTER_CHANGE");
 	console.log("Current slide:", currentSlide);
 	console.groupEnd();
